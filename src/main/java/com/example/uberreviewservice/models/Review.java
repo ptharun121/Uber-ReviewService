@@ -1,10 +1,6 @@
 package com.example.uberreviewservice.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -21,6 +17,11 @@ public class Review extends BaseModel {
 	private String content;
 
 	private Double rating;
+
+
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(nullable = false)
+	private Booking booking;
 
 	@Override
 	public String toString() {

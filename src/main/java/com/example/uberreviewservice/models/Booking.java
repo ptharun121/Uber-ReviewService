@@ -16,10 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Booking extends BaseModel {
-	
-	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private Review review;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Driver driver;
 	
